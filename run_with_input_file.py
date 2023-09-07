@@ -8,9 +8,8 @@ pdf_name = str(sys.argv[1])
 
 # Store Pdf with convert_from_path function
 images = convert_from_path(f'pdfs/{pdf_name}')
-images[0].save('pdfs/page'+'.jpg', 'JPEG')
+images[0].save('pdfs/page.jpg', 'JPEG')
 
 
-img= Image.open("pdfs/page.jpg")
-text = pytesseract.image_to_string(img, lang='rus')
+text = pytesseract.image_to_string(Image.open("pdfs/page.jpg"), lang='rus')
 print(text)
